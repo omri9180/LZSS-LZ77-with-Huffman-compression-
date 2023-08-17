@@ -37,7 +37,6 @@ public class HuffEncoderDecoder {
         rootEn = buildHuffmanTree(minEncoder);
         createHuffmanCode(rootEn, "", encoderMap);
         encode(writeCompressedData, data, encoderMap);
-        System.out.println("The file has encoded");
         writeCompressedData.close();
 
 
