@@ -8,6 +8,8 @@ import javax.swing.border.EmptyBorder;
 import java.awt.*;
 import java.io.File;
 import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
 
 public class GUI extends JFrame {
     private int lookaheadBufferSize = 0;
@@ -21,12 +23,17 @@ public class GUI extends JFrame {
 
     public static void main(String[] args) {
         SwingUtilities.invokeLater(() -> {
-            GUI gui = new GUI();
+            GUI gui = null;
+            try {
+                gui = new GUI();
+            } catch (MalformedURLException e) {
+                throw new RuntimeException(e);
+            }
             gui.setVisible(true);
         });
     }
 
-    public GUI() {
+    public GUI() throws MalformedURLException {
 
         setTitle("LZSS With Huffman and LZ77");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -38,7 +45,8 @@ public class GUI extends JFrame {
         mainPanel.setBackground(bgColor);
 
         JLabel logo = new JLabel();
-        ImageIcon logoIcon = new ImageIcon("logo.png");
+        URL url = new URL("https://github.com/omri9180/LZSS-with-Huffman-and-LZ77-Compression-Project/blob/main/logo.png?raw=true");
+        ImageIcon logoIcon = new ImageIcon(url);
         Image img = logoIcon.getImage().getScaledInstance(180, 200, Image.SCALE_SMOOTH);
         logoIcon = new ImageIcon(img);
         logo.setBorder(new EmptyBorder(0, 30, 5, 30));
