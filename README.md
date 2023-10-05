@@ -4,6 +4,8 @@
 ## Description
 
 This project combines LZSS (Lempel-Ziv-Storer-Szymanski) compression with Huffman coding and LZ77 (Lempel-Ziv 77) compression techniques to achieve efficient data compression.
+![Screenshot](/sc_project_lzss.JPG)
+
 
 ## File Structure
 
